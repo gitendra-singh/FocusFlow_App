@@ -14,11 +14,13 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -375,11 +377,12 @@ private fun ButtonSection(
         modifier = modifier,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Button(onClick = cancelButtonClick,
+        Button(
+            onClick = cancelButtonClick,
             enabled = seconds != "00" && timerState != TimerState.STARTED
-            ) {
+        ) {
             Text(
-                modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp),
+                modifier = Modifier.padding(horizontal = 5.dp, vertical = 5.dp),
                 text = "Cancel"
             )
         }
@@ -392,10 +395,10 @@ private fun ButtonSection(
             )
         ) {
             Text(
-                modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp),
-                text = when(timerState) {
+                modifier = Modifier.padding(horizontal = 5.dp, vertical = 5.dp),
+                text = when (timerState) {
                     TimerState.STARTED -> "Stop"
-                    TimerState.STOPPED-> "Resume"
+                    TimerState.STOPPED -> "Resume"
                     else -> "Start"
                 }
             )
@@ -403,9 +406,9 @@ private fun ButtonSection(
         Button(
             onClick = finishButtonClick,
             enabled = seconds != "00" && timerState != TimerState.STARTED
-            ) {
+        ) {
             Text(
-                modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp),
+                modifier = Modifier.padding(horizontal = 5.dp, vertical = 5.dp),
                 text = "Finish"
             )
         }
